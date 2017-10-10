@@ -1,0 +1,48 @@
+name: github.com/opspec-pkgs/npm.publish
+description: runs npm pack on a directory
+inputs:
+  username:
+    string:
+      description: username cred for auth w/ registry
+  password:
+    string:
+      description: password cred for auth w/ registry
+      isSecret: true
+  access:
+    string:
+      constraints: { enum: [public, restricted]}
+      description: |
+                    Tells the registry whether this package should be published as public or restricted. Only applies to
+                    scoped packages. If you don't have a paid account, you must publish with --access public to publish
+                    scoped packages
+      default: restricted
+  pkgDir:
+    dir:
+      description: npm package directory
+      default: .
+  registry:
+    string:
+      constraints: { minLength: 1, format: uri }
+      description: registry for npm to use during install
+      default: https://registry.npmjs.org/
+  tag:
+    string:
+      description: |
+                    Registers the published package with the given tag, such that npm install <name>@<tag> will install
+                    this version. By default, npm publish updates and npm install installs the latest tag
+      default: latest
+version: 1.0.0
+run:
+  container:
+    cmd: [ /cmd.sh ]
+    dirs:
+      /pkgDir: $(pkgDir)
+    envVars:
+      NPM_CONFIG_REGISTRY: $(registry)
+      username: $(username)
+      password: $(password)
+      access: $(access)
+    files:
+      /cmd.sh:
+    image: { ref: 'node:8.6.0-alpine' }
+    workDir: /pkgDir

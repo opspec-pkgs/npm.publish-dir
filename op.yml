@@ -38,6 +38,7 @@ run:
     dirs:
       /pkgDir: $(pkgDir)
     envVars:
+      CI: "true"
       NPM_CONFIG_REGISTRY: $(registry)
       username: $(username)
       password: $(password)

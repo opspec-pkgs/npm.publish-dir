@@ -47,6 +47,7 @@ run:
       username: $(username)
       password: $(password)
       access: $(access)
+      tag: $(tag)
     files:
       /cmd.sh:
     image: { ref: 'node:8.6.0-alpine' }

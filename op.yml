@@ -1,6 +1,9 @@
 name: github.com/opspec-pkgs/npm.publish-dir
 description: runs npm publish on a directory
 inputs:
+  email:
+    string:
+      description: email cred for auth w/ registry
   username:
     string:
       description: username cred for auth w/ registry
@@ -40,6 +43,7 @@ run:
     envVars:
       CI: "true"
       NPM_CONFIG_REGISTRY: $(registry)
+      email: $(email)
       username: $(username)
       password: $(password)
       access: $(access)

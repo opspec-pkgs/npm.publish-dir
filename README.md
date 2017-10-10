@@ -30,11 +30,12 @@ opctl run github.com/opspec-pkgs/npm.publish-dir#1.0.0
 op:
   pkg: { ref: github.com/opspec-pkgs/npm.publish-dir#1.0.0 }
   inputs: 
+    email:
     username:
     password:
+    pkgDir:
     # begin optional args
     access:
-    pkgDir:
     registry:
     tag:
     # end optional args

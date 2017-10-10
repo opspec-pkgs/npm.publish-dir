@@ -1,5 +1,5 @@
-name: github.com/opspec-pkgs/npm.publish
-description: runs npm pack on a directory
+name: github.com/opspec-pkgs/npm.publish-dir
+description: runs npm publish on a directory
 inputs:
   username:
     string:

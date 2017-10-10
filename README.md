@@ -2,7 +2,7 @@
 
 # Problem statement
 
-runs npm pack on a directory
+runs npm publish on a directory
 
 # Format
 
@@ -15,26 +15,26 @@ format
 ## install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/npm.publish#1.0.0
+opctl pkg install github.com/opspec-pkgs/npm.publish-dir#1.0.0
 ```
 
 ## run
 
 ```
-opctl run github.com/opspec-pkgs/npm.publish#1.0.0
+opctl run github.com/opspec-pkgs/npm.publish-dir#1.0.0
 ```
 
 ## compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/npm.publish#1.0.0 }
+  pkg: { ref: github.com/opspec-pkgs/npm.publish-dir#1.0.0 }
   inputs: 
-    pkgDir:
     username:
     password:
     # begin optional args
     access:
+    pkgDir:
     registry:
     tag:
     # end optional args
@@ -44,7 +44,7 @@ op:
 
 join us on
 [![Slack](https://opspec-slackin.herokuapp.com/badge.svg)](https://opspec-slackin.herokuapp.com/)
-or [open an issue](https://github.com/opspec-pkgs/npm.publish/issues)
+or [open an issue](https://github.com/opspec-pkgs/npm.publish-dir/issues)
 
 # Releases
 

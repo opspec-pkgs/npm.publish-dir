@@ -34,7 +34,7 @@ inputs:
                     Registers the published package with the given tag, such that npm install <name>@<tag> will install
                     this version. By default, npm publish updates and npm install installs the latest tag
       default: latest
-version: 1.0.0
+version: 1.1.0
 run:
   container:
     cmd: [ /cmd.sh ]
@@ -43,12 +43,12 @@ run:
     envVars:
       CI: "true"
       NPM_CONFIG_REGISTRY: $(registry)
-      email: $(email)
-      username: $(username)
-      password: $(password)
-      access: $(access)
-      tag: $(tag)
+      email:
+      username:
+      password:
+      access:
+      tag:
     files:
       /cmd.sh:
-    image: { ref: 'node:8.6.0-alpine' }
+    image: { ref: 'node:9.5.0-alpine' }
     workDir: /pkgDir

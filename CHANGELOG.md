@@ -5,6 +5,12 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[2.0.0] - 2018-03-28
+
+### Removed
+
+- `email`, `username`, `password` inputs; use `authToken`
+
 ## \[1.1.0] - 2018-03-07
 
 ### Added

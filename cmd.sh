@@ -2,11 +2,7 @@
 
 set -e
 
-# see https://stackoverflow.com/questions/24143973/npm-adduser-via-bash
-npm login --registry "$NPM_CONFIG_REGISTRY" <<!
-$username
-$password
-$email
-!
+# strips scheme: from NPM_CONFIG_REGISTRY
+echo "${NPM_CONFIG_REGISTRY#*:}:_authToken=${authToken}" > /root/.npmrc
 
 npm publish --access "$access" --tag "$tag"

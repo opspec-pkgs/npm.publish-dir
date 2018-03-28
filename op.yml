@@ -1,15 +1,12 @@
 name: github.com/opspec-pkgs/npm.publish-dir
 description: runs npm publish on a directory
 inputs:
-  email:
+  authToken:
     string:
-      description: email cred for auth w/ registry
-  username:
-    string:
-      description: username cred for auth w/ registry
-  password:
-    string:
-      description: password cred for auth w/ registry
+      description: |
+        authToken cred for auth w/ registry; see 
+        [how to create a new authentication token](https://docs.npmjs.com/private-modules/ci-server-config#how-to-create-a-new-authentication-token)
+        for how to create one for the [npm](https://npmjs.com) registry. 
       isSecret: true
   access:
     string:
@@ -34,7 +31,7 @@ inputs:
                     Registers the published package with the given tag, such that npm install <name>@<tag> will install
                     this version. By default, npm publish updates and npm install installs the latest tag
       default: latest
-version: 1.1.0
+version: 2.0.0
 run:
   container:
     cmd: [ /cmd.sh ]
@@ -43,9 +40,7 @@ run:
     envVars:
       CI: "true"
       NPM_CONFIG_REGISTRY: $(registry)
-      email:
-      username:
-      password:
+      authToken:
       access:
       tag:
     files:

@@ -15,24 +15,22 @@ this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opsp
 ## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/npm.publish-dir#1.1.0
+opctl pkg install github.com/opspec-pkgs/npm.publish-dir#2.0.0
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/npm.publish-dir#1.1.0
+opctl run github.com/opspec-pkgs/npm.publish-dir#2.0.0
 ```
 
 ## Compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/npm.publish-dir#1.1.0 }
+  pkg: { ref: github.com/opspec-pkgs/npm.publish-dir#2.0.0 }
   inputs:
-    email:
-    username:
-    password:
+    authToken:
     # params w/ default
     access:
     pkgDir:
